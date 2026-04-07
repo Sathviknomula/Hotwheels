@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HOT WHEELS | Ultimate Supercar Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dynamic-bg"></div>
+<nav>
+    <div class="logo" style="cursor: pointer;" onclick="goToHome()">HOT <span>WHEELS</span></div>   
+    <div class="nav-links">
+        <button data-page="home" class="nav-btn active">HOME</button>
+        <button data-page="details" class="nav-btn">CAR DETAILS</button>
+        <button data-page="billing" class="nav-btn">BILLING</button>
+        <button data-page="payment" class="nav-btn">PAYMENT</button>
+        <button data-page="about" class="nav-btn">ABOUT</button>
+    </div>
+</nav>
+<div class="container">
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page active-page">
+        <div class="hero-swiper">
+            <div class="swiper heroSlider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1600&h=600&fit=crop');">
+                        <div class="slide-overlay"><div class="slide-title">Lamborghini Revuelto</div><div class="slide-sub">Best Selling Hypercar • Hybrid V12</div></div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&h=600&fit=crop');">
+                        <div class="slide-overlay"><div class="slide-title">Ferrari SF90 Stradale</div><div class="slide-sub">1000cv • Icon of Performance</div></div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1600&h=600&fit=crop');">
+                        <div class="slide-overlay"><div class="slide-title">Porsche 911 Turbo S</div><div class="slide-sub">Timeless Legend • Best in Class</div></div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <h2 class="section-title">10 ELITE BRANDS • 15+ SUPERCARS EACH</h2>
+        <div id="brandsContainer" class="brands-grid"></div>
+        <div id="brandCarsView" style="display: none;">
+            <button id="backToBrandsBtn" style="background:#2c2f3a; margin-bottom:1rem;"><i class="fas fa-arrow-left"></i> All Brands</button>
+            <h3 id="selectedBrandTitle"></h3>
+            <div id="carsListContainer" class="cars-grid"></div>
+        </div>
+    </div>
+
+    <!-- DETAILS PAGE -->
+    <div id="detailsPage" class="page">
+        <button id="backHomeFromDetails" style="background:#2c2f3a; margin-bottom:1rem;"><i class="fas fa-home"></i> Back to Home</button>
+        <div id="carDetailContent"></div>
+    </div>
+
+    <!-- BILLING PAGE -->
+    <div id="billingPage" class="page">
+        <div class="billing-form">
+            <h2>Booking & Delivery Details</h2>
+            <form id="billingForm">
+                <div style="margin-bottom:1rem;"><label>Full Name</label><input type="text" id="custName" required></div>
+                <div style="margin-bottom:1rem;"><label>Address</label><textarea id="custAddress" rows="2" required></textarea></div>
+                <div style="margin-bottom:1rem;"><label>Booking Date</label><input type="date" id="bookingDate" required></div>
+                <div style="margin-bottom:1rem;"><label>Delivery Date</label><input type="date" id="deliveryDate" required></div>
+                <div style="margin-bottom:1rem;"><label>Phone Number</label><input type="tel" id="phoneNum" required></div>
+                <button type="submit" id="saveBillingBtn">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAYMENT PAGE -->
+    <div id="paymentPage" class="page">
+        <div class="qr-container">
+            <h3>Secure Payment Gateway</h3>
+            <p id="qrCarInfo" style="margin: 1rem 0;"></p>
+            <div id="qrCanvas" style="display: flex; justify-content: center; margin: 1rem 0;"></div>
+            <p>Scan QR — contains Car Name, Model & Price details</p>
+            <button id="mockPaymentBtn" style="margin-top: 1rem;">Confirm Payment</button>
+            <p id="paymentStatus" style="margin-top:1rem;"></p>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="aboutPage" class="page">
+        <div class="about-container">
+            <h1>HOT WHEELS — The Pinnacle of Automotive Passion</h1>
+            <p style="margin:1rem 0;">Since 2020, HOT WHEELS has delivered the world's most exclusive supercars to collectors & enthusiasts. With 10 elite brands and 150+ vehicles, we redefine luxury mobility.</p>
+            <div style="display:flex; gap:2rem; flex-wrap:wrap; margin:1.5rem 0;">
+                <div><i class="fas fa-trophy"></i> 7,200+ Happy Clients</div>
+                <div><i class="fas fa-globe"></i> Global Concierge</div>
+                <div><i class="fas fa-certificate"></i> Certified Pre-Owned</div>
+            </div>
+            <h3>Client Reviews</h3>
+            <div class="review-card">⭐⭐⭐⭐⭐ "Flawless experience!" – Daniel R.</div>
+            <div class="review-card">⭐⭐⭐⭐⭐ "Secure QR payment, best platform." – Isabella M.</div>
+            <div class="review-card">⭐⭐⭐⭐½ "Incredible UI and attention to detail." – Liam Chen</div>
+            <p style="margin-top:2rem;"><i class="fas fa-envelope"></i> drive@hotwheels.com &nbsp; <i class="fas fa-phone"></i> +1 (888) 855-9356</p>
+        </div>
+    </div>
+</div>
+<footer>© 2025 HOT WHEELS — Ultimate Supercar Marketplace. Innovation meets velocity.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
